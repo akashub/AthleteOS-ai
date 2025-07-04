@@ -1,0 +1,46 @@
+{
+  "name": "WorkoutCollection",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the workout collection"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the collection"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "strength_training",
+        "cardio",
+        "running",
+        "yoga",
+        "martial_arts",
+        "sports",
+        "custom"
+      ],
+      "description": "Type of workouts in this collection"
+    },
+    "color": {
+      "type": "string",
+      "default": "blue",
+      "description": "Color theme for the collection"
+    },
+    "is_favorite": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this collection is marked as favorite"
+    },
+    "workout_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of workouts in this collection"
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

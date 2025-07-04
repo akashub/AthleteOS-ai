@@ -1,0 +1,113 @@
+{
+  "name": "WorkoutPlan",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the workout plan"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the plan"
+    },
+    "goal": {
+      "type": "string",
+      "enum": [
+        "weight_loss",
+        "muscle_gain",
+        "strength",
+        "endurance",
+        "general_fitness"
+      ],
+      "description": "Primary fitness goal"
+    },
+    "duration_weeks": {
+      "type": "number",
+      "description": "Plan duration in weeks"
+    },
+    "workouts_per_week": {
+      "type": "number",
+      "description": "Number of workouts per week"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Difficulty level"
+    },
+    "equipment_needed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Required equipment"
+    },
+    "workouts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "day": {
+            "type": "string"
+          },
+          "exercises": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "sets": {
+                  "type": "number"
+                },
+                "reps": {
+                  "type": "string"
+                },
+                "duration_seconds": {
+                  "type": "number"
+                },
+                "rest_seconds": {
+                  "type": "number"
+                },
+                "instructions": {
+                  "type": "string"
+                },
+                "muscle_groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "completed"
+      ],
+      "default": "draft"
+    },
+    "ai_generated": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "goal",
+    "difficulty_level"
+  ]
+}

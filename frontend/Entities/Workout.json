@@ -1,0 +1,99 @@
+{
+  "name": "Workout",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the workout"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the workout"
+    },
+    "collection_id": {
+      "type": "string",
+      "description": "ID of the collection this workout belongs to"
+    },
+    "estimated_duration_minutes": {
+      "type": "number",
+      "description": "Estimated duration in minutes"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Difficulty level"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "strength",
+              "cardio",
+              "stretching",
+              "compound"
+            ]
+          },
+          "sets": {
+            "type": "number"
+          },
+          "reps": {
+            "type": "string"
+          },
+          "duration_seconds": {
+            "type": "number"
+          },
+          "rest_seconds": {
+            "type": "number"
+          },
+          "weight": {
+            "type": "number"
+          },
+          "distance": {
+            "type": "number"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "muscle_groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equipment": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags for categorizing workouts"
+    },
+    "is_favorite": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "collection_id"
+  ]
+}
